@@ -7,7 +7,7 @@
 
 void deleteTree(treeNode* p) {
 	//a function that deletes(frees) the data structure
-    //used during the decompression algorithm
+    	//used during the decompression algorithm
 	if(p){
 		deleteTree(p->left);
 		deleteTree(p->right);
@@ -19,7 +19,7 @@ void deleteTree(treeNode* p) {
 
 void deleteList(SLLIST* sl) {
 	//a function that deletes(frees) the data
-    //structure you were using during your compression algorithm
+    	//structure you were using during your compression algorithm
 	hfcode* node = sl->head;
 	while(node){
 		hfcode* temp = node;
@@ -155,7 +155,6 @@ void initTree(hfTree* tree) {
 }
 
 void appendTree(hfTree* tree, hfcode* curr) {
-	
 	if (tree->root == NULL) {
 		tree->root = (treeNode*) malloc(sizeof(treeNode));
 		tree->root->parent = NULL;
@@ -163,7 +162,6 @@ void appendTree(hfTree* tree, hfcode* curr) {
 		tree->root->right = NULL;
 		tree->root->symbol = 0;
 	}
-
 	char* code = curr->code;
 	treeNode * tmp = tree->root;
 	while(*code) {
@@ -306,7 +304,6 @@ int main(int argc, char const *argv[]) {
 		}
 		compressFile(src, code, dest);
 	}
-
 	// decompress
 	if (comOrDecom == DECOMPRESS) {
 		if (dest == NULL) { // create a output file
